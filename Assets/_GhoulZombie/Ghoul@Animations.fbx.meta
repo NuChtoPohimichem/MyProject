@@ -522,8 +522,8 @@ ModelImporter:
       name: Animations
       takeName: Take 001
       internalID: 0
-      firstFrame: 1
-      lastFrame: 370
+      firstFrame: 201
+      lastFrame: 228
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -638,8 +638,8 @@ ModelImporter:
       name: Attack2
       takeName: Take 001
       internalID: 0
-      firstFrame: 190
-      lastFrame: 230
+      firstFrame: 205
+      lastFrame: 233
       wrapMode: 2
       orientationOffsetY: 0
       level: 0

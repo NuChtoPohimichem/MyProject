@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -9,9 +10,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] float movementSpeed = 5f;
     [SerializeField] GameObject player;
     [SerializeField] GameObject Enemy_object;
+    [SerializeField] GameObject Game_over;
     float currentSpeed;
     Rigidbody rb;
     bool isGameOver = false;
+    [SerializeField] AudioSource ScreamSounds;
+    [SerializeField] AudioClip Scream_AC;
 
 
     // Start is called before the first frame update
@@ -40,15 +44,27 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void Scream_menu()
+    {
+        Game_over.SetActive(true);
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             Scream.SetActive(true);
             Enemy_object.SetActive(false);
-            //flashlight.SetActive(false);
+            ScreamSounds.Play();
+            Invoke("Scream_menu", 0.9f);
         }
     }
+
+    public void EndGame()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
 
 
 }

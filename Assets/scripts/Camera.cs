@@ -32,5 +32,20 @@ public class ThirdPersonCamera : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(rotCamera);
         player.transform.rotation = Quaternion.Euler(rotPlayer);
-    }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Cursor.lockState == CursorLockMode.Locked)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+
+
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
+    } 
 }
+
